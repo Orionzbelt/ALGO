@@ -1,0 +1,65 @@
+// ALGORITHM three_nb_add
+// VAR
+//     num1,num2,num3 : INTEGER;
+//     sum : INTEGER : :=0;
+// BEGIN
+//     Read(num1);
+//     Read(num2);
+//     Read(num3);
+//     sum := num1 + num2 + num3;
+//     write(sum);
+// END
+
+// ALGORITHM types
+// VAR
+//    i : INTEGER := 26;
+//    f : FLOAT := 4.56;
+//    c : CHAR := 'c';
+//    s : STRING := 'str';
+//    b : BOOLEAN := TRUE;
+// BEGIN
+//    // this is a single line comment
+//    /* this is
+//    a multi line comment */
+//    f := i; // correct
+//    i := f; // wrong
+//    // we cannot mix types
+//    f := c; // wrong
+//    s := c; // correct
+//    b := i; // wrong
+// END
+
+function sentenceAnalysis(sentence) {
+  let charCount = 0;
+  let wordCount = 1; // Initialize to 1 since the last word ends with a point.
+  let vowelCount = 0;
+  const vowels = ['a', 'e', 'i', 'o', 'u'];
+
+  for (let i = 0; i < sentence.length; i++) {
+    const char = sentence[i];
+    if (char !== ' ') { // Ignore spaces when counting characters.
+      charCount++;
+    }
+
+    if (char === ' ') {
+      wordCount++;
+    }
+
+    if (vowels.includes(char.toLowerCase())) {
+      vowelCount++;
+    }
+  }
+
+  return { charCount, wordCount, vowelCount };
+}
+
+// Read the input sentence
+const inputSentence = prompt("Enter a sentence ending with a period (.)");
+
+// Call the function and get the results
+const { charCount, wordCount, vowelCount } = sentenceAnalysis(inputSentence);
+
+// Print the results
+console.log("Length of the sentence:", charCount);
+console.log("Number of words in the sentence:", wordCount);
+console.log("Number of vowels in the sentence:", vowelCount);
